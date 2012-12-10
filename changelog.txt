@@ -1,0 +1,4 @@
+Version 1.0.0-SNAPSHOT
+-----------------------
+  * initial fork from https://github.com/akquinet/android-archetypes
+  * Initial release
