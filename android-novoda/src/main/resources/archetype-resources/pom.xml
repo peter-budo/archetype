@@ -5,8 +5,8 @@
 
   <parent>
     <groupId>com.novoda</groupId>
-    <artifactId>android</artifactId>
-    <version>2.0.2</version>
+    <artifactId>reporting</artifactId>
+    <version>1.0.0</version>
   </parent>
 
   <groupId>${groupId}</groupId>
@@ -33,7 +33,6 @@
     #end
     <android-test.version>2.3.3</android-test.version>
     <android.sdk.platform>${platform}</android.sdk.platform>
-    <android.maven.plugin.version>${android-plugin-version}</android.maven.plugin.version>
     <junit.version>4.11</junit.version>
     <scm.branch>master</scm.branch>
   </properties>

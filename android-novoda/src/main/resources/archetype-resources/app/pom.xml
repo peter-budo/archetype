@@ -83,7 +83,7 @@
             </jvmArguments>
           </dex>
           <sign>
-            <debug>both</debug>
+            <debug>auto</debug>
           </sign>
         </configuration>
         <extensions>true</extensions>

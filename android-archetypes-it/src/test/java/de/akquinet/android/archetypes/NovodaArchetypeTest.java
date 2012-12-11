@@ -29,6 +29,7 @@ public class NovodaArchetypeTest {
     private static final String APP = "app";
     private static final String CORE = "core";
     private static final String INSTRUMENTATION = "instrumentation";
+    private static final String TEAM = "team-props";
     private static final String ANDROID_TEST = "android-test/";
     private static final String NOVODA_DEFAULT_PATH = "target/it/novoda-default/android-test/";
     private static final String NOVODA_PLATFORM_PACKAGE_PATH = "target/it/novoda-with-platform-and-package/android-test/";
@@ -57,7 +58,7 @@ public class NovodaArchetypeTest {
         @SuppressWarnings("unchecked")
         List<String> cli = verifier.getCliOptions();
         cli.add("-DarchetypeArtifactId=android-novoda");
-        cli.add("-DarchetypeGroupId=de.akquinet.android.archetypes");
+        cli.add("-DarchetypeGroupId=com.novoda");
         cli.add("-DarchetypeVersion=" + System.getProperty("archetype.version"));
         cli.add("-DgroupId=" + Constants.TEST_GROUP_ID);
         cli.add("-DartifactId=" + Constants.TEST_ARTIFACT_ID);
@@ -72,6 +73,7 @@ public class NovodaArchetypeTest {
         verifier.assertFilePresent(ANDROID_TEST + APP);
         verifier.assertFilePresent(ANDROID_TEST + CORE);
         verifier.assertFilePresent(ANDROID_TEST + INSTRUMENTATION);
+        verifier.assertFilePresent(ANDROID_TEST + TEAM);
         verifier.assertFilePresent(ANDROID_TEST + ".gitignore");
         verifier.assertFilePresent(ANDROID_TEST + "pom.xml");
         verifier.assertFilePresent(ANDROID_TEST + "README.md");
@@ -82,6 +84,10 @@ public class NovodaArchetypeTest {
 
         verifier.assertFilePresent(ANDROID_TEST + APP + "/AndroidManifest.xml");
         verifier.assertFilePresent(ANDROID_TEST + INSTRUMENTATION + "/AndroidManifest.xml");
+
+        verifier.assertFilePresent(ANDROID_TEST + TEAM + "/checkstyle.xml");
+        verifier.assertFilePresent(ANDROID_TEST + TEAM + "/findbugs-exclude.xml");
+        verifier.assertFilePresent(ANDROID_TEST + TEAM + "/lint.xml");
 
         verifier.assertFilePresent(ANDROID_TEST + APP + "/res/values/strings.xml");
         verifier.assertFilePresent(ANDROID_TEST + APP + "/res/values/style_base.xml");
@@ -97,7 +103,6 @@ public class NovodaArchetypeTest {
         Helper.assertContains(new File(NOVODA_DEFAULT_PATH + "/pom.xml"), "<android.version>4.1.1.4</android.version>");
         Helper.assertContains(new File(NOVODA_DEFAULT_PATH + "/pom.xml"), "<android-test.version>2.3.3</android-test.version>");
         Helper.assertContains(new File(NOVODA_DEFAULT_PATH + "/pom.xml"), "<android.sdk.platform>16</android.sdk.platform>");
-        Helper.assertContains(new File(NOVODA_DEFAULT_PATH + "/pom.xml"), "<android.maven.plugin.version>3.4.1</android.maven.plugin.version>");
 
         Helper.assertContains(new File(NOVODA_DEFAULT_PATH + APP + "/AndroidManifest.xml"), "<activity android:name=\".MainActivity\">");
         Helper.assertContains(new File(NOVODA_DEFAULT_PATH + APP + "/AndroidManifest.xml"), "package=\"android.archetypes.test\"");
@@ -131,7 +136,7 @@ public class NovodaArchetypeTest {
         @SuppressWarnings("unchecked")
         List<String> cli = verifier.getCliOptions();
         cli.add("-DarchetypeArtifactId=android-novoda");
-        cli.add("-DarchetypeGroupId=de.akquinet.android.archetypes");
+        cli.add("-DarchetypeGroupId=com.novoda");
         cli.add("-DarchetypeVersion=" + System.getProperty("archetype.version"));
         cli.add("-DgroupId=" + Constants.TEST_GROUP_ID);
         cli.add("-DartifactId=" + Constants.TEST_ARTIFACT_ID);

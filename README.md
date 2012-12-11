@@ -17,7 +17,7 @@ The archetype is based on experiences and setup used by [Novoda](http://www.novo
 To initiate an android project use:
 
     mvn archetype:generate \
-      -DarchetypeArtifactId=android-novoda \
+      -DarchetypeArtifactId=android-novoda-archetype \
       -DarchetypeGroupId=com.novoda \
       -DarchetypeVersion=1.0.0-SNAPSHOT \
       -DgroupId=your.company \
