@@ -77,6 +77,7 @@ public class NovodaArchetypeTest {
         verifier.assertFilePresent(ANDROID_TEST + ".gitignore");
         verifier.assertFilePresent(ANDROID_TEST + "pom.xml");
         verifier.assertFilePresent(ANDROID_TEST + "README.md");
+        verifier.assertFilePresent(ANDROID_TEST + "reporting.sh");
 
         verifier.assertFilePresent(ANDROID_TEST + APP + "/pom.xml");
         verifier.assertFilePresent(ANDROID_TEST + CORE + "/pom.xml");
