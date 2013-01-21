@@ -11,7 +11,6 @@
 
   <groupId>${groupId}</groupId>
   <artifactId>instrumentation</artifactId>
-  <version>${version}</version>
   <packaging>apk</packaging>
   <name>${artifactId} - Integration tests</name>
 
@@ -33,7 +32,7 @@
       <groupId>${groupId}</groupId>
       <artifactId>app</artifactId>
       <type>apk</type>
-      <version>${version}</version>
+      <version>${application.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -41,7 +40,7 @@
       <groupId>${groupId}</groupId>
       <artifactId>app</artifactId>
       <type>jar</type>
-      <version>${version}</version>
+      <version>${application.version}</version>
       <scope>provided</scope>
     </dependency>
 

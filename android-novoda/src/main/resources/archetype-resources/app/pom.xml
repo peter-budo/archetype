@@ -11,36 +11,17 @@
 
   <groupId>${groupId}</groupId>
   <artifactId>app</artifactId>
-  <version>${version}</version>
   <packaging>apk</packaging>
   <name>${artifactId} - Application</name>
 
-  <profiles>
-    <profile>
-      <id>emma</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>com.jayway.maven.plugins.android.generation2</groupId>
-            <artifactId>android-maven-plugin</artifactId>
-            <configuration>
-              <emma>
-                <enable>true</enable>
-                <classFolders>${project.basedir}/target/classes/</classFolders>
-                <outputMetaFile>${project.basedir}/target/emma/coverage.em</outputMetaFile>
-              </emma>
-              <dex>
-                <noLocals>true</noLocals>
-              </dex>
-            </configuration>
-            <extensions>true</extensions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
-
   <dependencies>
+
+    <dependency>
+      <groupId>${groupId}</groupId>
+      <artifactId>core</artifactId>
+      <version>${application.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>com.google.android</groupId>
       <artifactId>android</artifactId>
@@ -59,12 +40,6 @@
       <artifactId>library</artifactId>
       <version>4.2.0</version>
       <type>apklib</type>
-    </dependency>
-
-    <dependency>
-      <groupId>${groupId}</groupId>
-      <artifactId>core</artifactId>
-      <version>${version}</version>
     </dependency>
 
   </dependencies>
@@ -90,4 +65,29 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>emma</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+            <artifactId>android-maven-plugin</artifactId>
+            <configuration>
+              <emma>
+                <enable>true</enable>
+                <classFolders>${project.basedir}/target/classes/</classFolders>
+                <outputMetaFile>${project.basedir}/target/emma/coverage.em</outputMetaFile>
+              </emma>
+              <dex>
+                <noLocals>true</noLocals>
+              </dex>
+            </configuration>
+            <extensions>true</extensions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
