@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright 2010 akquinet
+ Copyright 2012 Novoda
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
@@ -18,7 +18,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.novoda</groupId>
-  <artifactId>android-novoda-archetype</artifactId>
+  <artifactId>archetype-parent</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -34,8 +34,8 @@
   <inceptionYear>2012</inceptionYear>
 
   <modules>
-    <module>android-novoda</module>
-    <module>android-archetypes-it</module>
+    <module>archetype</module>
+    <module>archetypes-it</module>
   </modules>
 
   <organization>

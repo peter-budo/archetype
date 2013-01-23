@@ -32,7 +32,15 @@
     #elseif(${platform} == 14)<android.version>4.0.1.2</android.version>
     #elseif(${platform} == 16)<android.version>4.1.1.4</android.version>
     #end
-    <android-test.version>2.3.3</android-test.version>
+    #if(${platform} == 3)<android-test.version>1.5_r4</android-test.version>
+    #elseif(${platform} == 4)<android-test.version>1.6_r2</android-test.version>
+    #elseif(${platform} == 7)<android-test.version>2.1.2</android-test.version>
+    #elseif(${platform} == 8)<android-test.version>2.2.1</android-test.version>
+    #elseif(${platform} == 9)<android-test.version>2.3.1</android-test.version>
+    #elseif(${platform} == 10)<android-test.version>2.3.3</android-test.version>
+    #elseif(${platform} == 14)<android-test.version>4.0.1.2</android-test.version>
+    #elseif(${platform} == 16)<android-test.version>4.1.1.4</android-test.version>
+    #end
     <android.sdk.platform>${platform}</android.sdk.platform>
     <junit.version>4.11</junit.version>
     <scm.branch>master</scm.branch>

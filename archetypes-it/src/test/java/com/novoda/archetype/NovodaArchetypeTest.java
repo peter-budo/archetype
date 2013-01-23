@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 akquinet
+ * Copyright 2012 Novoda
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.akquinet.android.archetypes;
+package com.novoda.archetype;
 
 import java.io.File;
 import java.io.IOException;
@@ -57,7 +57,7 @@ public class NovodaArchetypeTest {
 
         @SuppressWarnings("unchecked")
         List<String> cli = verifier.getCliOptions();
-        cli.add("-DarchetypeArtifactId=android-novoda");
+        cli.add("-DarchetypeArtifactId=archetype");
         cli.add("-DarchetypeGroupId=com.novoda");
         cli.add("-DarchetypeVersion=" + System.getProperty("archetype.version"));
         cli.add("-DgroupId=" + Constants.TEST_GROUP_ID);
@@ -102,7 +102,7 @@ public class NovodaArchetypeTest {
         Helper.assertContains(new File(NOVODA_DEFAULT_PATH + "/pom.xml"), "<module>core</module>");
         Helper.assertContains(new File(NOVODA_DEFAULT_PATH + "/pom.xml"), "<module>instrumentation</module>");
         Helper.assertContains(new File(NOVODA_DEFAULT_PATH + "/pom.xml"), "<android.version>4.1.1.4</android.version>");
-        Helper.assertContains(new File(NOVODA_DEFAULT_PATH + "/pom.xml"), "<android-test.version>2.3.3</android-test.version>");
+        Helper.assertContains(new File(NOVODA_DEFAULT_PATH + "/pom.xml"), "<android-test.version>4.1.1.4</android-test.version>");
         Helper.assertContains(new File(NOVODA_DEFAULT_PATH + "/pom.xml"), "<android.sdk.platform>16</android.sdk.platform>");
 
         Helper.assertContains(new File(NOVODA_DEFAULT_PATH + APP + "/AndroidManifest.xml"), "<activity android:name=\".MainActivity\">");
@@ -136,7 +136,7 @@ public class NovodaArchetypeTest {
 
         @SuppressWarnings("unchecked")
         List<String> cli = verifier.getCliOptions();
-        cli.add("-DarchetypeArtifactId=android-novoda");
+        cli.add("-DarchetypeArtifactId=archetype");
         cli.add("-DarchetypeGroupId=com.novoda");
         cli.add("-DarchetypeVersion=" + System.getProperty("archetype.version"));
         cli.add("-DgroupId=" + Constants.TEST_GROUP_ID);

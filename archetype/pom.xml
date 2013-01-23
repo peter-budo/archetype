@@ -17,12 +17,12 @@
 
   <parent>
     <groupId>com.novoda</groupId>
-    <artifactId>android-novoda-archetype</artifactId>
+    <artifactId>archetype-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
   <groupId>com.novoda</groupId>
-  <artifactId>android-novoda</artifactId>
+  <artifactId>archetype</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <name>Android Archetype - Novoda</name>
   <description>Creates a skeleton for an Android application per Novoda requirments</description>

@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.akquinet.android.archetypes;
+package com.novoda.archetype;
 
 import java.io.File;
 import java.io.FileInputStream;
