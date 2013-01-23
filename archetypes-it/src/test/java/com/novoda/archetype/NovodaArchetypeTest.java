@@ -112,10 +112,6 @@ public class NovodaArchetypeTest {
         Helper.assertContains(new File(NOVODA_DEFAULT_PATH + INSTRUMENTATION + "/AndroidManifest.xml"), "android:targetPackage=\"android.archetypes.test\"");
 
         Helper.assertContains(new File(NOVODA_DEFAULT_PATH + INSTRUMENTATION + "/src/android/archetypes/test/test/MainActivityTest.java"), "super(MainActivity.class);");
-
-
-        Helper.assertContains(new File(NOVODA_DEFAULT_PATH + APP + "/default.properties"), "target=android-16");
-        Helper.assertContains(new File(NOVODA_DEFAULT_PATH + INSTRUMENTATION + "/project.properties"), "target=android-16");
     }
 
     /**
