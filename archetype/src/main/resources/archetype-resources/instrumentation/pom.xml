@@ -32,7 +32,7 @@
       <groupId>${groupId}</groupId>
       <artifactId>app</artifactId>
       <type>apk</type>
-      <version>${application.version}</version>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -40,7 +40,7 @@
       <groupId>${groupId}</groupId>
       <artifactId>app</artifactId>
       <type>jar</type>
-      <version>${application.version}</version>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -63,83 +63,4 @@
       </plugin>
     </plugins>
   </build>
-
-  <profiles>
-    <profile>
-      <id>emma</id>
-      <dependencies>
-        <dependency>
-          <groupId>emma</groupId>
-          <artifactId>emma</artifactId>
-          <type>jar</type>
-          <scope>compile</scope>
-          <version>2.1.5320</version>
-        </dependency>
-      </dependencies>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>properties-maven-plugin</artifactId>
-            <version>1.0-alpha-1</version>
-            <executions>
-              <execution>
-                <phase>initialize</phase>
-                <goals>
-                  <goal>read-project-properties</goal>
-                </goals>
-                <configuration>
-                  <files>
-                    <file>project.properties</file>
-                  </files>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>com.jayway.maven.plugins.android.generation2</groupId>
-            <artifactId>android-maven-plugin</artifactId>
-            <configuration>
-              <test>
-                <skip>false</skip>
-                <coverage>true</coverage>
-                <coverageFile>/mnt/sdcard/${groupId}/files/coverage.ec</coverageFile>
-                <createReport>true</createReport>
-              </test>
-            </configuration>
-            <extensions>true</extensions>
-            <executions>
-              <execution>
-                <id>pull-coverage</id>
-                <phase>post-integration-test</phase>
-                <goals>
-                  <goal>pull</goal>
-                </goals>
-                <configuration>
-                  <pullSource>/mnt/sdcard/${groupId}/files/coverage.ec</pullSource>
-                  <pullDestination>${tested.project}/target/emma/coverage.ec</pullDestination>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-      <reporting>
-        <plugins>
-          <plugin>
-            <groupId>org.sonatype.maven.plugin</groupId>
-            <artifactId>emma4it-maven-plugin</artifactId>
-            <version>1.4.20120522</version>
-            <configuration>
-              <metadatas>${tested.project}/target/emma/coverage.em,${tested.project}/src/</metadatas>
-              <instrumentations>${tested.project}/target/emma/coverage.ec</instrumentations>
-              <reportDirectory>${tested.project}/target/emma/</reportDirectory>
-              <baseDirectory>${tested.project}/target/</baseDirectory>
-              <formats>xml,html</formats>
-            </configuration>
-          </plugin>
-        </plugins>
-      </reporting>
-    </profile>
-  </profiles>
 </project>

@@ -14,19 +14,9 @@
   <packaging>jar</packaging>
 
   <properties>
-    <powermock.version>1.5</powermock.version>
+    <dagger.version>0.9.1</dagger.version>
   </properties>
 
-  <repositories>
-    <repository>
-      <id>oss-sonatype</id>
-      <name>oss-sonatype</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
   <dependencies>
     <dependency>
       <groupId>com.google.android</groupId>
@@ -34,12 +24,14 @@
       <version>${android.version}</version>
       <scope>provided</scope>
     </dependency>
+
     <dependency>
       <groupId>com.google.android</groupId>
       <artifactId>support-v4</artifactId>
       <version>r7</version>
       <scope>provided</scope>
     </dependency>
+
     <dependency>
       <groupId>com.google.android</groupId>
       <artifactId>maps</artifactId>
@@ -47,54 +39,27 @@
       <scope>test</scope>
       <type>jar</type>
     </dependency>
+
+    <dependency>
+      <groupId>com.squareup</groupId>
+      <artifactId>dagger</artifactId>
+      <version>${dagger.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>com.pivotallabs</groupId>
-      <artifactId>robolectric</artifactId>
-      <version>1.2-SNAPSHOT</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>1.9.5</version>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
       <version>2.4</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-module-junit4</artifactId>
-      <version>${powermock.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-api-mockito</artifactId>
-      <version>${powermock.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-module-junit4-rule</artifactId>
-      <version>${powermock.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-classloading-objenesis</artifactId>
-      <version>${powermock.version}</version>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>junit-addons</groupId>
       <artifactId>junit-addons</artifactId>
@@ -106,41 +71,26 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>com.mycila.maven-license-plugin</groupId>
-        <artifactId>maven-license-plugin</artifactId>
-        <version>1.9.0</version>
-        <configuration>
-          <header>src/main/resources/license.txt</header>
-          <strictCheck>true</strictCheck>
-          <excludes>
-            <exclude>src/main/java/com/novoda/imageloader/core/cache/LruCache.java</exclude>
-          </excludes>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>2.2.1</version>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9</version>
-        <executions>
-          <execution>
-            <id>attach-javadocs</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <dependencies>
+          <dependency>
+            <groupId>com.squareup</groupId>
+            <artifactId>dagger-compiler</artifactId>
+            <version>${dagger.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
+
+  <repositories>
+    <repository>
+      <id>oss-sonatype</id>
+      <name>oss-sonatype</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 </project>
